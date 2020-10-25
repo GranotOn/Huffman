@@ -1,1 +1,1 @@
-# Huffman Algorithm Visualizor
+# Huffman Algorithm Visualizer
