@@ -16,24 +16,38 @@ function sortObject(obj) {
   }));
 }
 
-function code(obj) {
-    var arr = Node.createNodeArrayFromObject(obj);
-    if (arr.length <= 1)
-        return arr[0] || null;
+function createNodeArray(obj) {
+    var arr = [];
+    Object.keys(obj).forEach((key) => {
+        arr.push(new Node({freq: obj[key], name: key}))
+    });
+    return arr;
+}
+
+function sortNodeArray(arr) {
+    arr.sort((a, b) => a.data.freq - b.data.freq)
+}
+
+function code(data) {
+    var obj = parseDataToObject(data);
+    var arr = createNodeArray(obj);
     
-    return codeHelper(arr, 0);
+    var i = 0;
+    while (arr.length > 1) {
+        const a = arr[0], b = arr[1];
+        const p_freq = a.data.freq + b.data.freq;
+        const p_name = "z_" + i.toString()
+        const parent = new Node({freq: p_freq, name: p_name});
+
+        parent.setRightNode(a);
+        parent.setLeftNode(b);
+        arr.splice(0, 2);
+        arr.push(parent);
+        sortNodeArray(arr);
+        ++i;
+    }
+    
+    return arr;
 }
 
-function codeHelper(arr, i) {
-    if (arr.length === 1)
-        return arr;
-
-    var left = arr[0], right = arr[1];
-    var nodeItem = Node.createNodeArrayItem("z_" + i.toString(), left.count + right.count);
-    nodeItem.node.setLeftNode = left.node;
-    nodeItem.node.setRightNode = right.node;
-
-    return codeHelper(arr.splice(0, 2), i++)
-}
-
-export { parseDataToObject, code };
+export { code };

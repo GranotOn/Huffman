@@ -6,8 +6,7 @@
     const val = data.value;
     if (!val) return;
     
-    const obj = Huffman.parseDataToObject(val);
-    const code = Huffman.code(obj);
+    const code = Huffman.code(val);
 
     console.log(code);
   }
