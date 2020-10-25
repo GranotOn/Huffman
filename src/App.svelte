@@ -1,14 +1,14 @@
 <script>
   let data;
+  let code;
   import * as Huffman from "./Huffman/Huffman.js";
+  import Canvas from "./Components/Canvas.svelte";
 
   function apply() {
     const val = data.value;
     if (!val) return;
     
-    const code = Huffman.code(val);
-
-    console.log(code);
+    code = Huffman.code(val);
   }
 </script>
 
@@ -56,3 +56,6 @@
   <button id="apply" on:click={apply}>Apply</button>
   <button id="reset">Reset</button>
 </header>
+
+<Canvas data={code}/>
+

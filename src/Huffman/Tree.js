@@ -13,11 +13,19 @@ export default class Node {
     this.right = data;
   }
 
-  getCount() {
+  getFreq() {
     return this.data.count;
   }
 
-  getValue() {
+  getName() {
     return this.data.val;
+  }
+
+  getData() {
+      return this.data;
+  }
+
+  inOrder() {
+      return [...this.left.inOrder, this.data, ...this.right.inOrder]
   }
 }

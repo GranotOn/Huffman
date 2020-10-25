@@ -35,7 +35,7 @@ function code(data) {
     var i = 0;
     while (arr.length > 1) {
         const a = arr[0], b = arr[1];
-        const p_freq = a.data.freq + b.data.freq;
+        const p_freq = a.getFreq() + b.getFreq();
         const p_name = "z_" + i.toString()
         const parent = new Node({freq: p_freq, name: p_name});
 
