@@ -25,7 +25,8 @@ export default class Node {
       return this.data;
   }
 
-  inOrder() {
-      return [...this.left.inOrder, this.data, ...this.right.inOrder]
+  getCode(name) {
+    if (this.getName() === name)
+      return "";
   }
 }

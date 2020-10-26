@@ -10,6 +10,10 @@
     code = null;
     code = Huffman.code(val);
   }
+
+  function reset() {
+    code = null;
+  }
 </script>
 
 <style>
@@ -31,10 +35,11 @@
   }
 
   button {
-    padding: 1em;
+    padding: 1.2em;
     margin: 0 0.2em;
     cursor: pointer;
-    background-color: transparent;
+    background-color: mediumseagreen;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, .5);
     border: 1px solid black;
     border-radius: 5px;
     color: white;
@@ -42,7 +47,7 @@
   }
 
   button:hover {
-    background-color: rgb(102, 96, 96);
+    background-color: rgb(78, 192, 129);
     transition: 0.2s all;
   }
 </style>
@@ -54,7 +59,7 @@
     on:keydown={(e) => e.key === 'Enter' && apply()}
     bind:this={data} />
   <button id="apply" on:click={apply}>Apply</button>
-  <button id="reset">Reset</button>
+  <button id="reset" on:click={reset}>Reset</button>
 </header>
 
 <Canvas data={code}/>

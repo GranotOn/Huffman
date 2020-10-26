@@ -1,5 +1,9 @@
 <script>
-  export let node;
+  export let node, getCode = () => {};
+
+  function alertData() {
+      alert(getCode(node.data.name));
+  }
 </script>
 
 <style>
@@ -11,6 +15,7 @@
     justify-content: center;
   }
   .node-rep {
+    cursor: pointer;
     position: absolute;
     top: 10%;
     left: 50%;
@@ -27,27 +32,27 @@
   }
 
   .node:nth-child(2) {
-      margin-top: 10em;
-      flex: 1;
-    }
-    
-    .node:nth-child(3) {
-        margin-top: 10em;
+    margin-top: 10em;
+    flex: 1;
+  }
+
+  .node:nth-child(3) {
+    margin-top: 10em;
     flex: 1;
   }
 </style>
 
 {#if node}
   <div class="node">
-    <div class="node-rep">
+    <div class="node-rep" on:click={alertData}>
       <p>{node.data.name}: {node.data.freq}</p>
     </div>
     {#if node.right}
-      <svelte:self node={node.right} />
+      <svelte:self node={node.right} getCode={getCode} />
     {/if}
 
     {#if node.left}
-      <svelte:self node={node.left} />
+      <svelte:self node={node.left} getCode={getCode} />
     {/if}
   </div>
 {/if}

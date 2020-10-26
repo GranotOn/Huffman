@@ -1,6 +1,10 @@
 <script>
   export let data;
   import Node from "./Node.svelte";
+
+  function getCode(name) {
+      return data[0].getCode(name);
+  }
 </script>
 
 <style>
@@ -14,6 +18,6 @@
 
 {#if data}
   <div class="parent">
-    <Node node={data[0]} />
+    <Node node={data[0]} getCode={getCode}/>
   </div>
 {/if}
