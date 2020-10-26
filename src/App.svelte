@@ -7,7 +7,7 @@
   function apply() {
     const val = data.value;
     if (!val) return;
-    
+    code = null;
     code = Huffman.code(val);
   }
 </script>

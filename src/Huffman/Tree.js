@@ -14,7 +14,7 @@ export default class Node {
   }
 
   getFreq() {
-    return this.data.count;
+    return this.data.freq;
   }
 
   getName() {
