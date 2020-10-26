@@ -1,8 +1,11 @@
 <script>
-  export let node, getCode = () => {};
+  import { data } from "../../../svelete-todo/src/stores";
+
+  export let node,
+    getCode = () => {};
 
   function alertData() {
-      alert(getCode(node.data.name));
+    alert(getCode(node.data.name));
   }
 </script>
 
@@ -45,14 +48,17 @@
 {#if node}
   <div class="node">
     <div class="node-rep" on:click={alertData}>
-      <p>{node.data.name}: {node.data.freq}</p>
+      <p>
+        {node.data.name.length == 1 ? node.data.name + ':' : ''}
+        {node.data.freq}
+      </p>
     </div>
     {#if node.right}
-      <svelte:self node={node.right} getCode={getCode} />
+      <svelte:self node={node.right} {getCode} />
     {/if}
 
     {#if node.left}
-      <svelte:self node={node.left} getCode={getCode} />
+      <svelte:self node={node.left} {getCode} />
     {/if}
   </div>
 {/if}
