@@ -4,7 +4,8 @@
 
   function alertData() {
     let n = node.data.name;
-    alert(getCode(n));
+    if (n && n.length === 1)
+      alert(getCode(n));
   }
 </script>
 
