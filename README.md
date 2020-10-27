@@ -1,5 +1,7 @@
 # Huffman Algorithm Visualizer
 
+![Image of demo site](https://i.postimg.cc/BZzQcv3Z/Screenshot-from-2020-10-27-21-30-10.jpg)
+
 *In computer science, a Huffman code is a particular type of optimal prefix code that is commonly used for lossless data comperssion.*
 
 - [Prefix Code](https://en.wikipedia.org/wiki/Prefix_code)
