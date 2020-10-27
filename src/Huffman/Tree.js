@@ -22,11 +22,24 @@ export default class Node {
   }
 
   getData() {
-      return this.data;
+    return this.data;
   }
 
   getCode(name) {
-    if (this.getName() === name)
-      return "";
+    if (this.data.name === name) return "";
+
+    if (this.left && this.left.data.name === name) return "1";
+
+    if (this.right && this.right.data.name === name) return "0";
+
+    var ls, rs;
+    if (this.left != null) ls = "1" + this.left.getCode(name);
+
+    if (this.right != null) rs = "0" + this.right.getCode(name);
+
+    if (!ls) return rs;
+    if (!rs) return ls;
+
+    return (ls.includes("undefined") ? rs : ls);
   }
 }

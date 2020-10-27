@@ -1,11 +1,10 @@
 <script>
-  import { data } from "../../../svelete-todo/src/stores";
-
   export let node,
     getCode = () => {};
 
   function alertData() {
-    alert(getCode(node.data.name));
+    let n = node.data.name;
+    alert(getCode(n));
   }
 </script>
 
