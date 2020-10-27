@@ -11,6 +11,7 @@
 
 ```
 git clone https://github.com/OwenGranot/Huffman
+cd ./Huffman
 npm install
 npm run dev
 ```
